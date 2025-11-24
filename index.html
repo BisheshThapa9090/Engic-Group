@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Engic Group — Lalitpur | Civil Engineering & Architecture</title>
+    <meta name="description" content="Engic Group — Top civil engineering, construction and architecture firm in Lalitpur, Nepal. We design, build and manage modern, safe, and sustainable homes and buildings.">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Refined Blue Palette */
+            --primary: #1F4E96; /* Deep, professional blue */
+            --primary-dark: #163C75;
+            --accent-light: #E0EBF9; /* Very light background for contrast */
+            --muted: #6b7280;
+            --text-dark: #1f2937;
+            
+            --max-width: 1200px; /* Slightly wider layout */
+            --radius: 12px;
+            
+            /* Enhanced Shadow System for Polish */
+            --shadow-md: 0 4px 12px rgba(31, 78, 150, 0.08);
+            --shadow-lg: 0 10px 20px rgba(31, 78, 150, 0.15);
+
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            color: var(--text-dark);
+        }
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out; /* Global transition for smooth polish */
+        }
+        body {
+            margin: 0;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px; /* Increased padding */
+        }
+        h1, h2, h3, h4 {
+            line-height: 1.25;
+            font-weight: 800;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above everything */
+            box-shadow: var(--shadow-lg);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+        }
+        .logo-mark svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+        nav ul {
+            display: flex;
+            gap: 30px; /* Wider spacing */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        nav a {
+            color: #f8fbff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+        }
+        
+        /* Primary Button Style */
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            box-shadow: 0 6px 16px rgba(31, 78, 150, 0.25);
+            transform: translateY(-1px);
+        }
+
+        /* Secondary Button (for Contact/Quote inside blue header) */
+        .btn-secondary {
+            background: none;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+
+        /* --- Mobile Styles --- */
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            font-size: 24px;
+        }
+        @media(max-width: 900px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 72px;
+                right: 24px;
+                background: var(--primary);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-lg);
+                padding: 20px;
+                min-width: 200px;
+                gap: 16px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .nav a:hover::after {
+                background: var(--accent-light);
+            }
+        }
+
+        /* --- General Sections --- */
+        .hero {
+            padding: 100px 0;
+            background: var(--accent-light);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .services, .projects, .team {
+            padding: 80px 0;
+        }
+        
+        /* --- Hero Section --- */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 48px;
+            align-items: center;
+        }
+        .eyebrow {
+            display: inline-block;
+            background: rgba(31, 78, 150, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 16px 0 16px;
+            color: var(--text-dark);
+        }
+        p.lead {
+            color: var(--muted);
+            font-size: 18px;
+            margin: 0 0 24px;
+        }
+        .cta-row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .stat-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .stat {
+            font-size: 14px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        .card-surface {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* --- Form Inputs and Textareas --- */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(31, 78, 150, 0.2);
+        }
+
+        /* --- Services/Projects Grid Styles (from previous file) --- */
+        .services-grid {
+            display: grid;
+            /* Adjust grid for better flow with 7 items */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .service {
+            padding: 24px;
+            border-radius: var(--radius);
+            background: #fff;
+            border: 1px solid var(--accent-light);
+            box-shadow: var(--shadow-md);
+        }
+        .service:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 25px rgba(31, 78, 150, 0.15);
+            transform: translateY(-3px);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .project {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .project:hover {
+             box-shadow: var(--shadow-lg);
+             transform: translateY(-3px);
+        }
+        .project .thumb {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            filter: brightness(0.95);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        /* --- Team Section Styles --- */
+        .founder-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: var(--accent-light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+        .founder-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transform: translateY(-40px); /* Lift off the box */
+            background-color: var(--primary);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .team-member-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            background-color: var(--accent-light);
+            border: 4px solid var(--primary);
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            padding: 50px 40px;
+            background: var(--accent-light);
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        form .full {
+            grid-column: 1/-1;
+        }
+        button[type=submit] {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+        button[type=submit]:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-lg);
+        }
+        .muted {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 0; /* Increased padding */
+            color: #fff;
+            background: var(--primary-dark);
+            font-size: 14px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-heading {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .footer-contact-info a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.85;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .footer-contact-info a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* --- Toast Notification Style --- */
+        #toast-success {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 25px;
+            background: #10B981; /* Green success color */
+            color: #fff;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2000;
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        #toast-success.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* Responsive Layout Adjustments */
+        @media(max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            h1 {
+                font-size: 38px;
+            }
+            .card-surface {
+                margin-top: 30px;
+            }
+            .founder-profile {
+                padding: 40px 20px 20px;
+            }
+            .founder-pic {
+                transform: translateY(-20px);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media(max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .stat-row {
+                flex-wrap: wrap;
+            }
+            form {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+/* FILTER WRAPPER */
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+    margin: 40px 0 30px;
+    flex-wrap: wrap;
+    justify-content: center;   /* <-- centers horizontally */
+    align-items: center;       /* <-- centers vertically */
+}
+
+
+/* BUTTON STYLE */
+.filter-btn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--primary);
+    background: var(--accent-light);
+    color: var(--primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+/* HOVER */
+.filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ACTIVE BUTTON */
+.filter-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow-lg);
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Toast Notification Element -->
+<div id="toast-success">
+    ✅ Message Sent! We will contact you shortly.
+</div>
+
+<header>
+    <div class="container nav">
+        <div class="brand">
+            <div class="logo-mark" aria-hidden>
+                <!-- structural mark: building outline -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l9-9 9 9v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-8z"/></svg>
+            </div>
+            <div>
+                <div style="font-size:16px;font-weight:800;letter-spacing:0.5px">ENGIC GROUP</div>
+                <div style="font-size:12px;opacity:.9">Engineering & Architecture</div>
+            </div>
+        </div>
+
+        <nav>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
+            <ul id="navList">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Our Team</a></li> <!-- NEW: Team Link -->
+                <li><a href="#contact" class="btn-secondary">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="eyebrow">Kathmandu • Nepal</span>
+                <h1>Engineering Excellence. Architectural Vision. Trusted Execution.</h1>
+                <p class="lead">Engic Group is Nepal's leading civil engineering and architectural firm, specializing in delivering modern, earthquake-resistant homes, commercial spaces, and sustainable infrastructure.</p>
+
+                <div class="cta-row">
+                    <a class="btn-primary" href="#projects">Our Projects</a>
+                    <a href="#contact" style="color:var(--primary);font-weight:700;padding:10px 14px;border-radius:10px;">Contact Sales →</a>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat">10+ Years Experience</div>
+                    <div class="stat">200+ Homes Built</div>
+                    <div class="stat">Quality Built</div>
+                </div>
+            </div>
+
+            <!-- Lead Capture Card -->
+            <div class="card-surface">
+                <h3 style="margin:0 0 8px;font-weight:700;color:var(--primary-dark)">Request a Free Project Plan</h3>
+                <p style="margin:0 0 16px" class="muted">Tell us about your needs and we'll prepare a no-obligation feasibility and cost estimate.</p>
+                <form id="leadForm">
+                    <input type="text" name="name" placeholder="Your full name" required class="full">
+                    <input type="tel" name="phone" placeholder="Phone (e.g. +977-XXXXXXXXXX)" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="text" name="location" placeholder="Project location (City/Area)" required>
+                    <textarea name="notes" rows="3" class="full" placeholder="Brief project description (type of building, size, budget idea)"></textarea>
+                    <button type="submit" class="full">Request Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- Services -->
+<section id="services" class="services container">
+    <div style="text-align:center;max-width:700px;margin:0 auto 40px;">
+        <h2 style="margin:0;font-size:32px">Our Services</h2>
+        <p class="muted" style="margin:8px 0 0">We manage the entire lifecycle, from the initial architectural sketch to the final structural inspection.</p>
+    </div>
+
+    <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">📐</div>
+            <h3>Architectural & Structural Design</h3>
+            <p>Complete analysis, design, and planning for resilient structures, meeting all local and seismic codes.</p>
+        </div>
+        <!-- Service 2 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">📸</div>
+            <h3>Exterior 3D Visualization</h3>
+            <p>Photorealistic exterior 3D pictures and video walkthroughs to visualize the final outcome before construction begins.</p>
+        </div>
+        <!-- Service 3 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">🛋️</div>
+            <h3>Interior Design & Detail Drawing</h3>
+            <p>Full-service interior design, detailed 2D/3D drawings, and execution management for construction.</p>
+        </div>
+        <!-- Service 4 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">🔨</div>
+            <h3>Exterior & Interior Renovation</h3>
+            <p>Comprehensive renovation services for existing residential and commercial properties, inside and out.</p>
+        </div>
+        <!-- Service 5 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">💰</div>
+            <h3>Estimation & Valuation</h3>
+            <p>Accurate project estimation, detailed costing, and professional property valuation services.</p>
+        </div>
+        <!-- Service 6 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">👷</div>
+            <h3>Construction & Site Supervision</h3>
+            <p>Full project management, quality-controlled construction, and meticulous site supervision by licensed engineers.</p>
+        </div>
+        <!-- Service 7 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">🌳</div>
+            <h3>Environmental Assessment (EIA/IEE)</h3>
+            <p>Preparation and submission of Environmental Impact Assessment (EIA) and Initial Environmental Examination (IEE) reports.</p>
+        </div>
+        <!-- Service 8 -->
+        <div class="service">
+            <div style="font-size:30px;margin-bottom:8px">🏗️</div>
+            <h3>Project Consulting & Advisory</h3>
+            <p>Expert consulting for project feasibility, risk assessment, and sustainable construction solutions to ensure successful project completion.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Projects -->
+<section id="projects" class="projects container">
+    <div style="text-align:center;max-width:700px;margin:0 auto 40px;">
+        <h2 style="margin:0;font-size:32px">Featured Projects: Commitment to Quality</h2>
+        <p class="muted" style="margin:8px 0 0">A refined collection of structures that highlight our craftsmanship across homes and commercial spaces in the Kathmandu Valley.</p>
+    </div>
+
+    <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="residential">Residential</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <button class="filter-btn" data-filter="renovation">Renovation</button>
+</div>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        // Switch active class
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const type = btn.dataset.filter;
+        const projects = document.querySelectorAll('.project');
+
+        projects.forEach(project => {
+            if (type === "all" || project.dataset.type === type) {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        });
+
+    });
+});
+</script>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid">
+        <!-- project 1 -->
+        <div class="project" data-type="residential">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Modern+Lalitpur+Villa');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">The Sapphire Villa — Lalitpur</h4>
+                <p class="muted" style="margin:0;font-size:14px">A luxury 3BHK home featuring smart integration and a durable, flexible structure.</p>
+            </div>
+        </div>
+
+        <!-- project 2 -->
+        <div class="project" data-type="commercial">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Kathmandu+Business+Park');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">Kathmandu Business Park — Baluwatar</h4>
+                <p class="muted" style="margin:0;font-size:14px">A high-efficiency commercial tower completed on time and within budget.</p>
+            </div>
+        </div>
+
+        <!-- project 3 -->
+        <div class="project" data-type="renovation">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Heritage+Home+Retrofit');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">Patan Durbar Retrofit — Heritage Zone</h4>
+                <p class="muted" style="margin:0;font-size:14px">Structural reinforcement and modernization of a protected heritage residential unit.</p>
+            </div>
+        </div>
+
+        <!-- project 4 -->
+        <div class="project" data-type="residential">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Hillside+Eco+House');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">Hillside Eco Residence — Godavari</h4>
+                <p class="muted" style="margin:0;font-size:14px">A sustainable design utilizing local materials and passive solar heating principles.</p>
+            </div>
+        </div>
+
+        <!-- project 5 -->
+        <div class="project" data-type="commercial">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Retail+Block+KTM');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">Thamel Retail Block — Commercial</h4>
+                <p class="muted" style="margin:0;font-size:14px">A highly functional retail space optimized for foot traffic and customer flow.</p>
+            </div>
+        </div>
+
+        <!-- project 6 -->
+        <div class="project" data-type="renovation">
+            <div class="thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Apartment+Interior+Upgrade');"></div>
+            <div class="meta">
+                <h4 style="margin:0 0 6px">Apartment Interior Upgrade — Lazimpat</h4>
+                <p class="muted" style="margin:0;font-size:14px">Full interior redesign focused on maximizing space and introducing premium finishes.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Our Team Section -->
+<section id="team" class="team container">
+    <div style="text-align:center;max-width:800px;margin:0 auto 60px;">
+        <h2 style="margin:0;font-size:32px">Meet the Leadership Team</h2>
+        <p class="muted" style="margin:8px 0 0;font-size:17px">
+            Our strength is our team of dedicated engineers, architects, and project managers, 
+            all united by a commitment to quality and safety.
+        </p>
+    </div>
+
+    <!-- Founder Profile -->
+    <div style="margin-top:-30px;">
+        <div class="founder-profile">
+            <img src="https://placehold.co/180x180/1F4E96/ffffff?text=FOUNDER" 
+                 alt="Founder's Portrait" class="founder-pic">
+            
+            <h3 style="margin:0 0 4px;font-size:24px;color:var(--primary-dark)">
+                Abhiyan Thapa
+            </h3>
+            <p style="margin:0 0 16px;font-weight:600;color:var(--primary)">Founder & Structural Engineer</p>
+
+            <blockquote style="margin:20px 0;padding:20px 40px;border-left:4px solid var(--primary);
+            background:#f0f7ff;border-radius:var(--radius);font-style:italic;
+            color:var(--text-dark);font-size:16px;">
+                "We don't just build homes; we build trust. Every foundation we lay must be strong
+                enough to support the future of Nepal. Quality is non-negotiable."
+            </blockquote>
+
+            <p class="muted" style="font-size:15px;margin:0;">
+                With over a decade of experience in seismic engineering and municipal compliance, 
+                Abhiyan drives the vision for resilient, sustainable construction in the region.
+            </p>
+        </div>
+    </div>
+
+    <!-- Core Team Grid -->
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="https://placehold.co/100x100/1F4E96/ffffff?text=ARCH" alt="Architect" class="team-member-pic">
+            <h4 style="margin:0 0 4px;font-size:18px">Arch. Samiksha Rana</h4>
+            <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Lead Architect & Designer</p>
+            <p class="muted" style="font-size:13px;">Specializing in modern minimalist design and space optimization.</p>
+        </div>
+
+        <div class="team-member">
+            <img src="https://placehold.co/100x100/1F4E96/ffffff?text=MGR" alt="Project Manager" class="team-member-pic">
+            <h4 style="margin:0 0 4px;font-size:18px">Mr. Jeevan Sharma</h4>
+            <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Senior Project Manager</p>
+            <p class="muted" style="font-size:13px;">Ensuring timelines, budgets, and transparent communication are always met.</p>
+        </div>
+
+        <div class="team-member">
+            <img src="https://placehold.co/100x100/1F4E96/ffffff?text=QA" alt="Quality Assurance" class="team-member-pic">
+            <h4 style="margin:0 0 4px;font-size:18px">Er. Suresh Tamang</h4>
+            <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Quality Assurance Lead</p>
+            <p class="muted" style="font-size:13px;">Responsible for site inspections and material certification.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Apple-style hover effect for Founder */
+.founder-profile {
+    text-align: center;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.founder-profile:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth image lift for Founder */
+.founder-pic {
+    border-radius: 50%;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.founder-profile:hover .founder-pic {
+    transform: scale(1.05);
+}
+
+/* Apple-style hover effect for team members */
+.team-member {
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-member:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(31, 78, 150, 0.2);
+}
+
+/* Optional subtle image lift */
+.team-member-pic {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-member:hover .team-member-pic {
+    transform: scale(1.1);
+}
+</style>
+    
+    <!-- About Section (Kept for Mission & Values) -->
+    <section id="about" class="container" style="padding:60px 0;">
+        <div style="background:var(--accent-light);padding:40px;border-radius:var(--radius);display:flex;gap:40px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow-md)">
+            <div style="flex:1;min-width:300px">
+                <h2 style="margin:0;color:var(--primary);font-size:30px">Our Commitment: Safety and Quality First</h2>
+                <p class="muted" style="margin:10px 0 20px;font-size:17px">As a locally rooted, internationally minded firm, Engic Group's primary focus is on utilizing the latest engineering science to guarantee **seismic resilience** while maintaining the highest aesthetic standards.</p>
+
+                <ul style="margin:0;padding-left:20px;font-size:15px;color:var(--text-dark);list-style:disc;">
+                    <li>**Certified Materials:** Only guaranteed, tested construction materials are used.</li>
+                    <li>**Expert Supervision:** Every stage is overseen by licensed civil and structural engineers.</li>
+                    <li>**10-Year Guarantee:** Structural integrity is our promise.</li>
+                </ul>
+            </div>
+
+            <div style="min-width:280px;text-align:center;">
+                <h4 style="margin:0 0 10px;font-weight:700">Ready to build?</h4>
+                <a class="btn-primary" href="#contact" style="display:inline-block;padding:12px 28px;font-size:18px;">Talk to an Expert Today</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Form (Detailed) -->
+    <section id="contact" class="container" style="padding:80px 0;">
+        <div class="contact">
+            <h2 style="margin:0 0 8px;color:var(--primary-dark);font-size:32px">Detailed Inquiry Form</h2>
+            <p class="muted" style="margin:0 0 24px;font-size:16px">Use this form for detailed project submissions. We commit to a personalized response within two business days.</p>
+
+            <form id="contactForm">
+                <input name="name" placeholder="Full Name" required>
+                <input name="phone" placeholder="Phone Number" required>
+                <input name="email" placeholder="Email Address" type="email" required>
+                <input name="budget" placeholder="Estimated Budget (Optional)">
+                <input name="location" placeholder="Project Location (City/Area)" class="full" required>
+                <textarea name="message" rows="5" class="full" placeholder="Describe your project: type (home/office), size, timeline, and key requirements." required></textarea>
+                <button type="submit" class="full">Submit Detailed Project Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer style="background-color:#1F4E96; color:#fff; padding:60px 20px; font-family:Arial, sans-serif;">
+    <div class="footer-grid" style="display:flex; flex-wrap:wrap; gap:40px; max-width:1200px; margin:0 auto; justify-content:space-between;">
+
+        <!-- Column 1: Company Info -->
+        <div style="flex:1; min-width:250px;">
+            <div style="font-size:20px; font-weight:800; margin-bottom:8px;">ENGIC GROUP OF COMPANY</div>
+            <p style="opacity:.85; line-height:1.6; margin-bottom:16px;">
+                Leading engineering and architecture firm based in Kathmandu, committed to safety and sustainable construction.
+            </p>
+            <div style="opacity:.7;">Babarmahal, Kathmandu, Nepal.</div>
+        </div>
+
+        <!-- Column 2: Contact Details -->
+        <div style="flex:1; min-width:200px;">
+            <div style="font-weight:700; margin-bottom:12px;">Reach Us</div>
+            <a href="tel:+977-984-3417857" style="display:flex; align-items:center; gap:8px; color:#fff; text-decoration:none; opacity:.85; margin-bottom:6px;">📞 +977-984-3417857</a>
+            <a href="mailto:engicgroupofcompany@gmail.com" style="display:flex; align-items:center; gap:8px; color:#fff; text-decoration:none; opacity:.85; margin-bottom:6px;">📧 engicgroupofcompany@gmail.com</a>
+            <div style="margin-top:10px; opacity:.7; display:flex; align-items:center; gap:8px;">🌐 Socials</div>
+        </div>
+
+        <!-- Column 3: Navigation -->
+        <div style="flex:1; min-width:150px;">
+            <div style="font-weight:700; margin-bottom:12px;">Quick Links</div>
+            <a href="#home" style="display:block; color:#fff; text-decoration:none; margin-bottom:6px; opacity:.85;">Home</a>
+            <a href="#services" style="display:block; color:#fff; text-decoration:none; margin-bottom:6px; opacity:.85;">Our Services</a>
+            <a href="#projects" style="display:block; color:#fff; text-decoration:none; margin-bottom:6px; opacity:.85;">Projects</a>
+            <a href="#team" style="display:block; color:#fff; text-decoration:none; opacity:.85;">Our Team</a>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.3); margin-top:40px; padding-top:20px; text-align:center; opacity:.85; font-size:14px;">
+        © 2024 Engic Group of Company. All rights reserved.
+    </div>
+</footer>
+
+<style>
+    footer a:hover {
+        color:#3B82F6; /* Lighter blue on hover */
+        opacity:1;
+        text-decoration: underline;
+    }
+</style>
+
+
+<script>
+    // --- JavaScript for Mobile Menu, Form Submission (Toast), and Filtering ---
+
+    // 1. Mobile nav toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navList = document.getElementById('navList');
+    
+    // Hide/Show logic for mobile nav
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+        navList.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
+    });
+    // Close on link click
+    document.querySelectorAll('#navList a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                navList.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // 2. Custom Toast Notification (Replaces alert())
+    const toast = document.getElementById('toast-success');
+    function showSuccessToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3500); // Display for 3.5 seconds
+    }
+
+    // 3. Simple form submission handling
+    function handleFormSubmit(form, successMessage) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server.
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((v, k) => data[k] = v);
+
+            // Simulate successful asynchronous submission
+            setTimeout(() => {
+                form.reset();
+                showSuccessToast(successMessage);
+            }, 300);
+        });
+    }
+    
+    const leadForm = document.getElementById('leadForm');
+    const contactForm = document.getElementById('contactForm');
+    
+    leadForm && handleFormSubmit(leadForm, 'Consultation request sent! We will contact you soon.');
+    contactForm && handleFormSubmit(contactForm, 'Detailed inquiry submitted! We will reply within 48 hours.');
+
+
+    // 4. Project filtering
+    const filters = document.getElementById('projectFilters');
+    const projectGrid = document.getElementById('projectsGrid');
+    if (filters && projectGrid) {
+        filters.addEventListener('click', (e) => {
+            const btn = e.target.closest('.chip');
+            if (!btn) return;
+            const filter = btn.dataset.filter;
+
+            // update active chip
+            filters.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+
+            // show/hide projects
+            const cards = projectGrid.querySelectorAll('.project');
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.type === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // 5. Smooth scroll for internal links (ensure smooth behavior when mobile nav is open)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+            const href = this.getAttribute('href');
+            if(href.length>1){
+                const el = document.querySelector(href);
+                if(el) {
+                    e.preventDefault();
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 900) {
+                        navList.classList.remove('open');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                    el.scrollIntoView({behavior:'smooth',block:'start'});
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
