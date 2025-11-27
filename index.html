@@ -35,6 +35,7 @@
             margin: 0;
             background: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         .container {
             max-width: var(--max-width);
@@ -44,6 +45,130 @@
         h1, h2, h3, h4 {
             line-height: 1.25;
             font-weight: 800;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section Specific Animations */
+        .hero-content-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-content-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hero-content-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+        }
+
+        .hero-content-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Staggered animations for hero elements */
+        .hero-stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-stagger-item:nth-child(1) { transition-delay: 0.1s; }
+        .hero-stagger-item:nth-child(2) { transition-delay: 0.2s; }
+        .hero-stagger-item:nth-child(3) { transition-delay: 0.3s; }
+        .hero-stagger-item:nth-child(4) { transition-delay: 0.4s; }
+        .hero-stagger-item:nth-child(5) { transition-delay: 0.5s; }
+
+        /* Stats animation */
+        .stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item:nth-child(1) { transition-delay: 0.6s; }
+        .stat-item:nth-child(2) { transition-delay: 0.7s; }
+        .stat-item:nth-child(3) { transition-delay: 0.8s; }
+
+        /* Fade-in animation for other sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax effect for hero */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-light) 0%, rgba(224, 235, 249, 0.8) 100%);
+            transform: translateZ(0);
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Staggered animation for service cards */
+        .service-card {
+            transition-delay: calc(var(--delay) * 0.1s);
+        }
+
+        /* Enhanced header scroll effect */
+        header {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.scrolled {
+            background: rgba(31, 78, 150, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Smooth scale animation for cards */
+        .scale-in {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scale-in.visible {
+            transform: scale(1);
+            opacity: 1;
         }
 
         /* --- Header & Navigation --- */
@@ -807,47 +932,49 @@
 <main>
     <section id="home" class="hero">
         <div class="container hero-grid">
-            <div>
-                <span class="eyebrow">Kathmandu • Nepal</span>
-                <h1>Engineering Excellence. Architectural Vision. Trusted Execution.</h1>
-                <p class="lead">Engic Group is Nepal's leading civil engineering and architectural firm, specializing in delivering modern, earthquake-resistant homes, commercial spaces, and sustainable infrastructure.</p>
+            <div class="hero-content-left">
+                <span class="eyebrow hero-stagger-item">Kathmandu • Nepal</span>
+                <h1 class="hero-stagger-item">Engineering Excellence. Architectural Vision. Trusted Execution.</h1>
+                <p class="lead hero-stagger-item">Engic Group is Nepal's leading civil engineering and architectural firm, specializing in delivering modern, earthquake-resistant homes, commercial spaces, and sustainable infrastructure.</p>
 
-                <div class="cta-row">
+                <div class="cta-row hero-stagger-item">
                     <a class="btn-primary" href="#projects">Our Projects</a>
                     <a href="#contact" style="color:var(--primary);font-weight:700;padding:10px 14px;border-radius:10px;">Contact Sales →</a>
                 </div>
 
                 <div class="stat-row">
-                    <div class="stat">10+ Years Experience</div>
-                    <div class="stat">200+ Homes Built</div>
-                    <div class="stat">Quality Built</div>
+                    <div class="stat stat-item">10+ Years Experience</div>
+                    <div class="stat stat-item">200+ Homes Built</div>
+                    <div class="stat stat-item">Quality Built</div>
                 </div>
             </div>
 
-            <div class="card-surface">
-                <h3 style="margin:0 0 8px;font-weight:700;color:var(--primary-dark)">Request a Free Project Plan</h3>
-                <p style="margin:0 0 16px" class="muted">Tell us about your needs and we'll prepare a no-obligation feasibility and cost estimate.</p>
-                <form id="leadForm">
-                    <input type="text" name="name" placeholder="Your full name" required class="full">
-                    <input type="tel" name="phone" placeholder="Phone (e.g. +977-XXXXXXXXXX)" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="text" name="location" placeholder="Project location (City/Area)" required>
-                    <textarea name="notes" rows="3" class="full" placeholder="Brief project description (type of building, size, budget idea)"></textarea>
-                    <button type="submit" class="full">Request Consultation</button>
-                </form>
+            <div class="hero-content-right">
+                <div class="card-surface">
+                    <h3 style="margin:0 0 8px;font-weight:700;color:var(--primary-dark)">Request a Free Project Plan</h3>
+                    <p style="margin:0 0 16px" class="muted">Tell us about your needs and we'll prepare a no-obligation feasibility and cost estimate.</p>
+                    <form id="leadForm">
+                        <input type="text" name="name" placeholder="Your full name" required class="full">
+                        <input type="tel" name="phone" placeholder="Phone (e.g. +977-XXXXXXXXXX)" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="text" name="location" placeholder="Project location (City/Area)" required>
+                        <textarea name="notes" rows="3" class="full" placeholder="Brief project description (type of building, size, budget idea)"></textarea>
+                        <button type="submit" class="full">Request Consultation</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
-            <div class="services-header">
-                <h2>Our Services</h2>
+            <div class="services-header fade-in">
+                <h2>Engineering Services Built With Precision</h2>
                 <p>At Engic Group, we combine innovative engineering with architectural excellence to deliver solutions that stand the test of time. Our comprehensive services are designed to transform your vision into reality with unmatched quality and attention to detail.</p>
             </div>
 
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 1">
                     <div class="service-icon">🏗️</div>
                     <h3>Architectural & Structural Design</h3>
                     <p class="service-small">Complete analysis, design, and planning for resilient structures</p>
@@ -859,7 +986,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Get Design Quote</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 2">
                     <div class="service-icon">🏙️</div>
                     <h3>Exterior 3D Visualization</h3>
                     <p class="service-small">Photorealistic renders & animated walkthroughs</p>
@@ -871,7 +998,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Request Render</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 3">
                     <div class="service-icon">🛋️</div>
                     <h3>Interior Design & Construction</h3>
                     <p class="service-small">Complete interior planning & execution</p>
@@ -883,7 +1010,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Design My Space</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 4">
                     <div class="service-icon">🔧</div>
                     <h3>Exterior & Interior Renovation</h3>
                     <p class="service-small">Modern upgrades for existing structures</p>
@@ -895,7 +1022,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Plan Renovation</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 5">
                     <div class="service-icon">💰</div>
                     <h3>Estimation & Property Valuation</h3>
                     <p class="service-small">Transparent costing backed by real data</p>
@@ -907,7 +1034,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Get Estimate</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 6">
                     <div class="service-icon">👷</div>
                     <h3>Construction & Site Supervision</h3>
                     <p class="service-small">On‑site monitoring for flawless execution</p>
@@ -919,7 +1046,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Start Building</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 7">
                     <div class="service-icon">🌍</div>
                     <h3>Environmental Impact Assessment</h3>
                     <p class="service-small">Ensuring development with environmental care</p>
@@ -931,7 +1058,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Assess Project</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 8">
                     <div class="service-icon">📄</div>
                     <h3>Initial Environmental Examination</h3>
                     <p class="service-small">Government-approved environmental review</p>
@@ -943,7 +1070,7 @@
                     <button class="service-btn" onclick="scrollToContact()">Start Examination</button>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card fade-in" style="--delay: 9">
                     <div class="service-icon">🏢</div>
                     <h3>Project Consulting & Advisory</h3>
                     <p class="service-small">Expert guidance for successful project completion</p>
@@ -961,12 +1088,12 @@
 
     <section id="projects" class="projects">
         <div class="container">
-            <div class="projects-header">
+            <div class="projects-header fade-in">
                 <h2>Featured Projects</h2>
                 <p>A refined collection of structures that highlight our craftsmanship across homes and commercial spaces in the Kathmandu Valley.</p>
             </div>
 
-            <div class="filter-buttons">
+            <div class="filter-buttons fade-in">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="residential">Residential</button>
                 <button class="filter-btn" data-filter="commercial">Commercial</button>
@@ -974,7 +1101,7 @@
             </div>
 
             <div class="projects-grid" id="projectsGrid">
-                <div class="project-card" data-type="residential">
+                <div class="project-card fade-in" data-type="residential" style="--delay: 1">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Modern+Lalitpur+Villa');"></div>
                     <div class="project-content">
                         <h4>The Sapphire Villa — Lalitpur</h4>
@@ -983,7 +1110,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-type="commercial">
+                <div class="project-card fade-in" data-type="commercial" style="--delay: 2">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Kathmandu+Business+Park');"></div>
                     <div class="project-content">
                         <h4>Kathmandu Business Park — Baluwatar</h4>
@@ -992,7 +1119,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-type="renovation">
+                <div class="project-card fade-in" data-type="renovation" style="--delay: 3">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Heritage+Home+Retrofit');"></div>
                     <div class="project-content">
                         <h4>Patan Durbar Retrofit — Heritage Zone</h4>
@@ -1001,7 +1128,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-type="residential">
+                <div class="project-card fade-in" data-type="residential" style="--delay: 4">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Hillside+Eco+House');"></div>
                     <div class="project-content">
                         <h4>Hillside Eco Residence — Godavari</h4>
@@ -1010,7 +1137,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-type="commercial">
+                <div class="project-card fade-in" data-type="commercial" style="--delay: 5">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Retail+Block+KTM');"></div>
                     <div class="project-content">
                         <h4>Thamel Retail Block — Commercial</h4>
@@ -1019,7 +1146,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-type="renovation">
+                <div class="project-card fade-in" data-type="renovation" style="--delay: 6">
                     <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Apartment+Interior+Upgrade');"></div>
                     <div class="project-content">
                         <h4>Apartment Interior Upgrade — Lazimpat</h4>
@@ -1033,7 +1160,7 @@
 
 
     <section id="team" class="team container">
-        <div style="text-align:center;max-width:800px;margin:0 auto 60px;">
+        <div style="text-align:center;max-width:800px;margin:0 auto 60px;" class="fade-in">
             <h2 style="margin:0;font-size:32px">Meet the Leadership Team</h2>
             <p class="muted" style="margin:8px 0 0;font-size:17px">
                 Our strength is our team of dedicated engineers, architects, and project managers, 
@@ -1042,7 +1169,7 @@
         </div>
 
         <div style="margin-top:-30px;">
-            <div class="founder-profile">
+            <div class="founder-profile scale-in">
                 <img src="https://placehold.co/180x180/1F4E96/ffffff?text=FOUNDER" 
                      alt="Founder's Portrait" class="founder-pic">
                 
@@ -1066,21 +1193,21 @@
         </div>
 
         <div class="team-grid">
-            <div class="team-member">
+            <div class="team-member fade-in" style="--delay: 1">
                 <img src="https://placehold.co/100x100/1F4E96/ffffff?text=ARCH" alt="Architect" class="team-member-pic">
                 <h4 style="margin:0 0 4px;font-size:18px">Arch. Samiksha Rana</h4>
                 <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Lead Architect & Designer</p>
                 <p class="muted" style="font-size:13px;">Specializing in modern minimalist design and space optimization.</p>
             </div>
 
-            <div class="team-member">
+            <div class="team-member fade-in" style="--delay: 2">
                 <img src="https://placehold.co/100x100/1F4E96/ffffff?text=MGR" alt="Project Manager" class="team-member-pic">
                 <h4 style="margin:0 0 4px;font-size:18px">Mr. Jeevan Sharma</h4>
                 <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Senior Project Manager</p>
                 <p class="muted" style="font-size:13px;">Ensuring timelines, budgets, and transparent communication are always met.</p>
             </div>
 
-            <div class="team-member">
+            <div class="team-member fade-in" style="--delay: 3">
                 <img src="https://placehold.co/100x100/1F4E96/ffffff?text=QA" alt="Quality Assurance" class="team-member-pic">
                 <h4 style="margin:0 0 4px;font-size:18px">Er. Suresh Tamang</h4>
                 <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Quality Assurance Lead</p>
@@ -1090,7 +1217,7 @@
     </section>
     
     <section id="about" class="container" style="padding:60px 0;">
-        <div style="background:var(--accent-light);padding:40px;border-radius:var(--radius);display:flex;gap:40px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow-md)">
+        <div style="background:var(--accent-light);padding:40px;border-radius:var(--radius);display:flex;gap:40px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow-md)" class="scale-in">
             <div style="flex:1;min-width:300px">
                 <h2 style="margin:0;color:var(--primary);font-size:30px">Our Commitment: Safety and Quality First</h2>
                 <p class="muted" style="margin:10px 0 20px;font-size:17px">As a locally rooted, internationally minded firm, Engic Group's primary focus is on utilizing the latest engineering science to guarantee <strong>seismic resilience</strong> while maintaining the highest aesthetic standards.</p>
@@ -1111,7 +1238,7 @@
 
 
     <section id="contact" class="container" style="padding:80px 0;">
-        <div class="contact">
+        <div class="contact scale-in">
             <h2 style="margin:0 0 8px;color:var(--primary-dark);font-size:32px">Detailed Inquiry Form</h2>
             <p class="muted" style="margin:0 0 24px;font-size:16px">Use this form for detailed project submissions. We commit to a personalized response within two business days.</p>
 
@@ -1132,7 +1259,7 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div>
+            <div class="fade-in">
                 <div class="footer-heading">ENGIC GROUP OF COMPANY</div>
                 <p style="opacity:.85; line-height:1.6; margin-bottom:16px;">
                     Leading engineering and architecture firm based in Kathmandu, committed to safety and sustainable construction.
@@ -1147,7 +1274,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="fade-in" style="--delay: 1">
                 <div class="footer-heading">Reach Us</div>
                 <div class="footer-contact-info">
                     <a href="tel:+977-984-3417857">📞 +977-984-3417857</a>
@@ -1157,7 +1284,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="fade-in" style="--delay: 2">
                 <div class="footer-heading">Quick Links</div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
@@ -1169,14 +1296,14 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
+        <div class="footer-bottom fade-in">
             © 2024 Engic Group of Company. All rights reserved.
         </div>
     </div>
 </footer>
 
 <script>
-    // --- JavaScript for Mobile Menu, Form Submission (Toast), and Filtering ---
+    // --- Enhanced JavaScript with Apple-level animations ---
 
     // 1. Mobile nav toggle
     const mobileToggle = document.getElementById('mobileToggle');
@@ -1287,6 +1414,58 @@
                 }
             }
         });
+    });
+
+    // 7. Scroll animations with Intersection Observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.fade-in, .scale-in, .hero-content-left, .hero-content-right, .hero-stagger-item, .stat-item').forEach(el => {
+        observer.observe(el);
+    });
+
+    // 8. Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // 9. Initialize hero animations immediately on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        // Animate hero elements immediately without waiting for scroll
+        const heroLeft = document.querySelector('.hero-content-left');
+        const heroRight = document.querySelector('.hero-content-right');
+        const heroStaggerItems = document.querySelectorAll('.hero-stagger-item');
+        const statItems = document.querySelectorAll('.stat-item');
+
+        if (heroLeft) heroLeft.classList.add('visible');
+        if (heroRight) heroRight.classList.add('visible');
+        
+        heroStaggerItems.forEach(item => {
+            item.classList.add('visible');
+        });
+
+        // Animate stats with a slight delay
+        setTimeout(() => {
+            statItems.forEach(item => {
+                item.classList.add('visible');
+            });
+        }, 800);
     });
 </script>
 
