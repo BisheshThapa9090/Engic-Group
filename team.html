@@ -238,59 +238,59 @@
         </div>
     </section>
 
-    <!-- Our Values Section - Clean & Aesthetic -->
+    <!-- Our Values Section - Clean no boxes -->
     <section class="values-section-team">
         <div class="container">
-            <div class="section-header">
+            <div class="values-header">
                 <h2>Our Core Values</h2>
                 <p>The principles that guide everything we do</p>
             </div>
-            <div class="values-grid-team">
-                <div class="value-card-team">
-                    <div class="value-icon-team">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="values-grid-no-boxes">
+                <div class="value-item-no-box">
+                    <div class="value-icon-no-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="M2 17l10 5 10-5"/>
                             <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <div class="value-content">
+                    <div>
                         <h4>Excellence</h4>
                         <p>We strive for perfection in every project, no matter the scale</p>
                     </div>
                 </div>
-                <div class="value-card-team">
-                    <div class="value-icon-team">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-item-no-box">
+                    <div class="value-icon-no-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"/>
                             <polyline points="12 6 12 12 16 14"/>
                         </svg>
                     </div>
-                    <div class="value-content">
+                    <div>
                         <h4>Innovation</h4>
                         <p>Embracing new technologies and methodologies for better solutions</p>
                     </div>
                 </div>
-                <div class="value-card-team">
-                    <div class="value-icon-team">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-item-no-box">
+                    <div class="value-icon-no-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2v4M4.9 4.9l2.8 2.8M2 12h4M4.9 19.1l2.8-2.8M12 22v-4M19.1 19.1l-2.8-2.8M22 12h-4M19.1 4.9l-2.8 2.8"/>
                             <circle cx="12" cy="12" r="4"/>
                         </svg>
                     </div>
-                    <div class="value-content">
+                    <div>
                         <h4>Integrity</h4>
                         <p>Honest communication and transparent business practices</p>
                     </div>
                 </div>
-                <div class="value-card-team">
-                    <div class="value-icon-team">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-item-no-box">
+                    <div class="value-icon-no-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 12h4l2-5 4 10 4-10 2 5h4"/>
                             <path d="M2 12h4l2-5 4 10 4-10 2 5h4"/>
                         </svg>
                     </div>
-                    <div class="value-content">
+                    <div>
                         <h4>Sustainability</h4>
                         <p>Building for tomorrow with eco-friendly practices and materials</p>
                     </div>
@@ -318,6 +318,7 @@
         background: linear-gradient(135deg, var(--accent-light) 0%, #ffffff 100%);
         padding: 80px 0 60px;
         text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .team-hero h1 {
@@ -628,43 +629,57 @@
         border-color: #E4405F;
     }
 
-    /* Values Section - Clean & Aesthetic */
+    /* Values Section - Clean no boxes */
     .values-section-team {
-        background: #f8f9fa;
-        padding: 80px 0;
+        background: linear-gradient(135deg, var(--accent-light) 0%, #ffffff 100%);
+        padding: 80px 0 100px;
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
-    .values-grid-team {
+    .values-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .values-header h2 {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .values-header p {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .values-grid-no-boxes {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
+        gap: 40px;
         margin-top: 48px;
     }
 
-    .value-card-team {
-        background: #ffffff;
-        padding: 32px 28px;
-        border-radius: 20px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        text-align: center;
+    .value-item-no-box {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         gap: 16px;
     }
 
-    .value-card-team:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(31, 78, 150, 0.08);
-        border-color: rgba(31, 78, 150, 0.1);
-    }
-
-    .value-icon-team {
-        width: 64px;
-        height: 64px;
-        background: var(--accent-light);
-        border-radius: 16px;
+    .value-icon-no-box {
+        width: 56px;
+        height: 56px;
+        background: rgba(31, 78, 150, 0.08);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -672,37 +687,38 @@
         transition: all 0.3s ease;
     }
 
-    .value-card-team:hover .value-icon-team {
+    .value-item-no-box:hover .value-icon-no-box {
         background: var(--primary);
+        transform: scale(1.05);
     }
 
-    .value-card-team:hover .value-icon-team svg {
+    .value-item-no-box:hover .value-icon-no-box svg {
         stroke: #ffffff;
     }
 
-    .value-icon-team svg {
-        width: 28px;
-        height: 28px;
+    .value-icon-no-box svg {
+        width: 26px;
+        height: 26px;
         stroke: var(--primary);
         fill: none;
         stroke-width: 1.8;
         transition: all 0.3s ease;
     }
 
-    .value-content h4 {
-        font-size: 18px;
+    .value-item-no-box h4 {
+        font-size: 20px;
         font-weight: 700;
         color: var(--text-dark);
-        margin: 0 0 8px 0;
+        margin: 0;
         letter-spacing: -0.01em;
     }
 
-    .value-content p {
+    .value-item-no-box p {
         font-size: 14px;
         color: var(--muted);
         line-height: 1.6;
         margin: 0;
-        max-width: 220px;
+        max-width: 240px;
     }
 
     /* CTA Section */
@@ -752,8 +768,9 @@
     }
 
     @media (max-width: 1024px) {
-        .values-grid-team {
+        .values-grid-no-boxes {
             grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
         }
     }
 
@@ -785,10 +802,11 @@
             margin: 0 auto;
         }
         
-        .values-grid-team {
+        .values-grid-no-boxes {
             grid-template-columns: 1fr;
             max-width: 340px;
             margin: 32px auto 0;
+            gap: 28px;
         }
         
         .team-hero h1 {
@@ -800,6 +818,10 @@
         }
         
         .section-header h2 {
+            font-size: 32px;
+        }
+
+        .values-header h2 {
             font-size: 32px;
         }
         
@@ -820,11 +842,7 @@
             font-size: 22px;
         }
 
-        .value-card-team {
-            padding: 28px 20px;
-        }
-
-        .value-content p {
+        .value-item-no-box p {
             max-width: 100%;
         }
     }
