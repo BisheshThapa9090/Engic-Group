@@ -13,29 +13,8 @@
 
 <div id="toast-success">✅ Message Sent! We will contact you shortly.</div>
 
-<header>
-    <div class="container nav">
-        <div class="brand">
-            <div class="logo-mark" aria-hidden>
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l9-9 9 9v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-8z"/></svg>
-            </div>
-            <div>
-                <div style="font-size:16px;font-weight:800;letter-spacing:0.5px">ENGIC GROUP</div>
-                <div style="font-size:12px;opacity:.9">Engineering & Architecture</div>
-            </div>
-        </div>
-        <nav>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
-            <ul id="navList">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact" class="btn-secondary">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<!-- Header will be loaded here -->
+<div id="header-placeholder"></div>
 
 <main>
     <section id="home" class="hero">
@@ -257,7 +236,7 @@
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <div class="project-card fade-in" data-type="residential" style="--delay: 1">
-                    <div class="project-thumb" style="background-image: url('../Engic-Group-Project-Image/Chitwan-Villa/Chitwan Villa.png');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Chitwan-Villa/Chitwan Villa.png');"></div>
                     <div class="project-content">
                         <h4>Chitwan Villa — Chitwan</h4>
                         <p>A luxury 3BHK home featuring smart integration and a durable, flexible structure.</p>
@@ -265,7 +244,7 @@
                     </div>
                 </div>
                 <div class="project-card fade-in" data-type="residential" style="--delay: 2">
-                    <div class="project-thumb" style="background-image: url('../Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home.jpg');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home.jpg');"></div>
                     <div class="project-content">
                         <h4>Kathmandu Residential Home - Baluwatar</h4>
                         <p>A stunning 4BHK residential home featuring modern design, smart integration, and premium finishes.</p>
@@ -273,7 +252,7 @@
                     </div>
                 </div>
                 <div class="project-card fade-in" data-type="residential" style="--delay: 3">
-                    <div class="project-thumb" style="background-image: url('../Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House.jpg');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House.jpg');"></div>
                     <div class="project-content">
                         <h4>Lalitpur House - Sankhamul</h4>
                         <p>A beautiful 3BHK modern home with elegant interior design and premium finishes in Sankhamul, Lalitpur.</p>
@@ -281,7 +260,7 @@
                     </div>
                 </div>
                 <div class="project-card fade-in" data-type="residential" style="--delay: 4">
-                    <div class="project-thumb" style="background-image: url('../Engic-Group-Project-Image/Tanahun-House/Tanahun-House.png');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Tanahun-House/Tanahun-House.png');"></div>
                     <div class="project-content">
                         <h4>Tanahun House — Tanahun</h4>
                         <p>An eco-friendly modern home featuring sustainable design and passive solar heating principles.</p>
@@ -289,7 +268,7 @@
                     </div>
                 </div>
                 <div class="project-card fade-in" data-type="commercial" style="--delay: 5">
-                    <div class="project-thumb" style="background-image: url('../Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png');"></div>
                     <div class="project-content">
                         <h4>Commercial Building - Pokhara</h4>
                         <p>A modern commercial complex in Pokhara featuring premium office spaces, retail outlets, and world-class amenities.</p>
@@ -297,13 +276,16 @@
                     </div>
                 </div>
                 <div class="project-card fade-in" data-type="renovation" style="--delay: 6">
-                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Apartment+Interior+Upgrade');"></div>
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Apartment-Upgrade/Living-Room.jpg');"></div>
                     <div class="project-content">
-                        <h4>Apartment Interior Upgrade — Lazimpat</h4>
+                        <h4>Apartment Interior Upgrade — Lalitpur</h4>
                         <p>Full interior redesign focused on maximizing space and introducing premium finishes.</p>
-                        <a href="#" class="project-link">View Project Details →</a>
+                        <a href="project-apartment-upgrade.html" class="project-link">View Project Details →</a>
                     </div>
                 </div>
+            </div>
+            <div class="view-all-container fade-in">
+                <a href="all-projects.html" class="view-all-btn">View All Projects →</a>
             </div>
         </div>
     </section>
@@ -313,35 +295,282 @@
             <h2 style="margin:0;font-size:32px">Meet the Leadership Team</h2>
             <p class="muted" style="margin:8px 0 0;font-size:17px">Our strength is our team of dedicated engineers, architects, and project managers, all united by a commitment to quality and safety.</p>
         </div>
-        <div style="margin-top:-30px;">
-            <div class="founder-profile scale-in">
-                <img src="https://placehold.co/180x180/1F4E96/ffffff?text=FOUNDER" alt="Founder's Portrait" class="founder-pic">
-                <h3 style="margin:0 0 4px;font-size:24px;color:var(--primary-dark)">Abhiyan Thapa</h3>
-                <p style="margin:0 0 16px;font-weight:600;color:var(--primary)">Founder & Structural Engineer</p>
-                <blockquote style="margin:20px 0;padding:20px 40px;border-left:4px solid var(--primary);background:#f0f7ff;border-radius:var(--radius);font-style:italic;color:var(--text-dark);font-size:16px;">
-                    "We don't just build homes; we build trust. We build Nepal's future."
-                </blockquote>
-                <p class="muted" style="font-size:15px;margin:0;">With years of expertise in seismic engineering and municipal compliance, Abhiyan leads the vision for resilient, sustainable, and forward-thinking construction across the region.</p>
+        
+        <!-- Apple-style Team Section -->
+        <div class="team-showcase">
+            <!-- Founder Card -->
+            <div class="founder-card scale-in">
+                <div class="founder-image">
+                    <img src="Engic-Group-Team-Image/Founder.jpg" alt="Abhiyan Thapa">
+                    <div class="founder-social">
+                        <a href="#" target="_blank">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/engicgroup/" target="_blank">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="founder-info">
+                    <h3>Abhiyan Thapa</h3>
+                    <p class="founder-title">Founder & Structural Engineer</p>
+                    <blockquote>"We don't just build homes; we build trust. We build Nepal's future."</blockquote>
+                    <p class="founder-bio">With years of expertise in seismic engineering and municipal compliance, Abhiyan leads the vision for resilient, sustainable, and forward-thinking construction across the region.</p>
+                </div>
+            </div>
+
+            <!-- Team Members Grid -->
+            <div class="team-grid-modern">
+                <div class="team-card fade-in" style="--delay: 1">
+                    <div class="team-card-image">
+                        <img src="Engic-Group-Team-Image/Member 1.png" alt="Co-founder & Engineer">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Er. Rupana Shrestha</h4>
+                        <p class="team-card-title">Co-founder & Engineer</p>
+                        <p class="team-card-bio">Passionate about sustainable engineering solutions and innovative design. Brings fresh perspectives and technical excellence to every project.</p>
+                        <div class="team-card-social">
+                            <a href="#" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/engicgroup/" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-in" style="--delay: 2">
+                    <div class="team-card-image">
+                        <img src="Engic-Group-Team-Image/Member 2.jpg" alt="Project Manager">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Er. Ramesh KC</h4>
+                        <p class="team-card-title">Senior Project Manager</p>
+                        <p class="team-card-bio">Ensuring timelines, budgets, and transparent communication are always met with excellence.</p>
+                        <div class="team-card-social">
+                            <a href="#" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/engicgroup/" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-in" style="--delay: 3">
+                    <div class="team-card-image">
+                        <img src="Engic-Group-Team-Image/Member 3.jpg" alt="Lead Architect">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Ar. Sunita Sharma</h4>
+                        <p class="team-card-title">Lead Architect & Designer</p>
+                        <p class="team-card-bio">Specializing in modern minimalist design and space optimization with over 8 years of experience. Bringing innovative architectural solutions to every project.</p>
+                        <div class="team-card-social">
+                            <a href="#" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/engicgroup/" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="team-grid">
-            <div class="team-member fade-in" style="--delay: 1">
-                <img src="https://placehold.co/100x100/1F4E96/ffffff?text=ARCH" alt="Architect" class="team-member-pic">
-                <h4 style="margin:0 0 4px;font-size:18px">Member 1</h4>
-                <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Lead Architect & Designer</p>
-                <p class="muted" style="font-size:13px;">Specializing in modern minimalist design and space optimization.</p>
+        
+        <div class="view-all-container fade-in">
+            <a href="team.html" class="view-all-btn">View All Team Members →</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-home">
+        <div class="container">
+            <div class="gallery-home-header fade-in">
+                <h2>Project Gallery</h2>
+                <p>A visual showcase of our finest engineering and architectural works</p>
             </div>
-            <div class="team-member fade-in" style="--delay: 2">
-                <img src="https://placehold.co/100x100/1F4E96/ffffff?text=MGR" alt="Project Manager" class="team-member-pic">
-                <h4 style="margin:0 0 4px;font-size:18px">Member 2</h4>
-                <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Senior Project Manager</p>
-                <p class="muted" style="font-size:13px;">Ensuring timelines, budgets, and transparent communication are always met.</p>
+            <div class="gallery-home-grid">
+                <div class="gallery-home-card fade-in" style="--delay: 1">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Chitwan-Villa/Chitwan Villa.png" alt="Chitwan Villa Exterior">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Chitwan Villa</h4>
+                        <p>A luxury 3BHK home featuring smart integration and a durable, flexible structure.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Exterior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-home-card fade-in" style="--delay: 2">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Living-Room.png" alt="Lalitpur House Living Room">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Elegant Living Space</h4>
+                        <p>Premium Italian marble flooring, custom-designed furniture, and abundant natural light.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-home-card fade-in" style="--delay: 3">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home-Living-Room.png" alt="Kathmandu Home Living Room">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Grand Living Area</h4>
+                        <p>Expansive living space with soaring ceilings, designer lighting, and carefully curated furnishings.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-home-card fade-in" style="--delay: 4">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Bed-Room.png" alt="Lalitpur House Bedroom">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Master Bedroom Suite</h4>
+                        <p>Custom-built wardrobes, ambient lighting, and premium finishes for ultimate comfort.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-home-card fade-in" style="--delay: 5">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png" alt="Pokhara Commercial Building">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Pokhara Commercial Hub</h4>
+                        <p>Modern commercial complex with premium office spaces and world-class amenities.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Commercial</span>
+                            <span class="tag">Exterior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-home-card fade-in" style="--delay: 6">
+                    <div class="gallery-home-image">
+                        <img src="Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Bath-Room-Design.png" alt="Lalitpur House Bathroom">
+                    </div>
+                    <div class="gallery-home-info">
+                        <h4>Spa-Inspired Bathroom</h4>
+                        <p>Luxurious bathroom with premium fixtures, elegant tiles, and a rainfall shower.</p>
+                        <div class="gallery-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="team-member fade-in" style="--delay: 3">
-                <img src="https://placehold.co/100x100/1F4E96/ffffff?text=QA" alt="Quality Assurance" class="team-member-pic">
-                <h4 style="margin:0 0 4px;font-size:18px">Member 3</h4>
-                <p style="margin:0 0 8px;font-size:14px;color:var(--primary)">Quality Assurance Lead</p>
-                <p class="muted" style="font-size:13px;">Responsible for site inspections and material certification.</p>
+            <div class="view-all-container fade-in">
+                <a href="gallery.html" class="view-all-btn">View Full Gallery →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section - 6 articles -->
+    <section id="blog" class="blog-home">
+        <div class="container">
+            <div class="blog-home-header fade-in">
+                <h2>Latest Insights</h2>
+                <p>Expert articles on engineering, architecture, and sustainable design</p>
+            </div>
+            <div class="blog-home-grid">
+                <div class="blog-card fade-in" style="--delay: 1">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/1F4E96/ffffff?text=Seismic+Design" alt="Seismic Design">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Engineering</div>
+                        <h4>Understanding Seismic-Resistant Building Design</h4>
+                        <p>Learn about the latest techniques in earthquake-resistant construction for Nepal's unique geological conditions.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" style="--delay: 2">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/163C75/ffffff?text=Sustainable+Materials" alt="Sustainable Materials">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Sustainability</div>
+                        <h4>Eco-Friendly Building Materials for Modern Homes</h4>
+                        <p>Discover sustainable alternatives that reduce environmental impact without compromising quality.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" style="--delay: 3">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/3B82F6/ffffff?text=Smart+Home" alt="Smart Home">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Technology</div>
+                        <h4>Smart Home Integration: The Future of Living</h4>
+                        <p>How IoT and automation are transforming residential spaces in Nepal.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" style="--delay: 4">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/2D6A4F/ffffff?text=Interior+Design" alt="Interior Design">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Design</div>
+                        <h4>Maximizing Small Spaces: Interior Design Tips</h4>
+                        <p>Expert advice on making the most of compact living spaces without sacrificing style.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" style="--delay: 5">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/6B21A8/ffffff?text=Green+Architecture" alt="Green Architecture">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Architecture</div>
+                        <h4>Green Architecture: Designing for Climate Resilience</h4>
+                        <p>How architectural design can combat climate challenges in the Himalayan region.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" style="--delay: 6">
+                    <div class="blog-image">
+                        <img src="https://placehold.co/600x400/8B5CF6/ffffff?text=Project+Management" alt="Project Management">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Management</div>
+                        <h4>Effective Construction Project Management Strategies</h4>
+                        <p>Key principles for delivering projects on time, within budget, and to the highest quality standards.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-container fade-in">
+                <a href="blog.html" class="view-all-btn">View All Articles →</a>
             </div>
         </div>
     </section>
@@ -381,80 +610,555 @@
     </section>
 </main>
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <div class="logo-mark" aria-hidden>
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l9-9 9 9v8a1 0 0 1-1 1h-5v-6H9v6H4a1 0 0 1-1-1v-8z"/></svg>
-                        </div>
-                        <div class="footer-brand-text">
-                            <div class="brand-name">ENGIC GROUP</div>
-                            <div class="brand-tagline">Engineering & Architecture</div>
-                        </div>
-                    </div>
-                    <p class="footer-description">Leading engineering and architecture firm based in Kathmandu, committed to safety and sustainable construction.</p>
-                </div>
-                <div class="footer-links-grid">
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">Services</h4>
-                        <div class="footer-links">
-                            <a href="#services">Architectural Design</a>
-                            <a href="#services">3D Visualization</a>
-                            <a href="#services">Construction</a>
-                            <a href="#services">Project Management</a>
-                        </div>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">Company</h4>
-                        <div class="footer-links">
-                            <a href="#home">Home</a>
-                            <a href="#projects">Projects</a>
-                            <a href="#team">Our Team</a>
-                            <a href="#contact">Contact</a>
-                        </div>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">Connect</h4>
-                        <div class="footer-contact">
-                            <a href="tel:+977-984-3417857" class="contact-link">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                +977-984-3417857
-                            </a>
-                            <a href="mailto:engicgroupofcompany@gmail.com" class="contact-link">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                engicgroupofcompany@gmail.com
-                            </a>
-                            <div class="contact-link">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                Babarmahal, Kathmandu
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">© 2024 Engic Group. All rights reserved.</div>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<!-- Footer will be loaded here -->
+<div id="footer-placeholder"></div>
 
-<script src="script.js"></script>
+<style>
+    /* Gallery Home Section */
+    .gallery-home {
+        padding: 80px 0;
+        background: #ffffff;
+    }
+
+    .gallery-home-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+    }
+
+    .gallery-home-header h2 {
+        font-size: 42px;
+        margin: 0 0 16px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .gallery-home-header p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .gallery-home-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .gallery-home-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+    }
+
+    .gallery-home-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 40px rgba(31, 78, 150, 0.12);
+    }
+
+    .gallery-home-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .gallery-home-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-home-card:hover .gallery-home-image img {
+        transform: scale(1.05);
+    }
+
+    .gallery-home-info {
+        padding: 20px;
+    }
+
+    .gallery-home-info h4 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+    }
+
+    .gallery-home-info p {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .gallery-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: var(--accent-light);
+        padding: 4px 10px;
+        border-radius: 14px;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--primary);
+        letter-spacing: 0.3px;
+    }
+
+    /* Blog Home Section - White Background */
+    .blog-home {
+        padding: 80px 0;
+        background: #ffffff;
+    }
+
+    .blog-home-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+    }
+
+    .blog-home-header h2 {
+        font-size: 42px;
+        margin: 0 0 16px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .blog-home-header p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .blog-home-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .blog-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 40px rgba(31, 78, 150, 0.12);
+    }
+
+    .blog-image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-image img {
+        transform: scale(1.05);
+    }
+
+    .blog-content {
+        padding: 24px;
+    }
+
+    .blog-category {
+        display: inline-block;
+        background: var(--accent-light);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 12px;
+    }
+
+    .blog-content h4 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--text-dark);
+        line-height: 1.4;
+    }
+
+    .blog-content p {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 16px;
+        line-height: 1.5;
+    }
+
+    .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+        gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+        .gallery-home-grid,
+        .blog-home-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gallery-home-grid,
+        .blog-home-grid {
+            grid-template-columns: 1fr;
+        }
+        .gallery-home-header h2,
+        .blog-home-header h2 {
+            font-size: 32px;
+        }
+    }
+</style>
+
+<script>
+    // Mobile navigation toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navList = document.getElementById('navList');
+
+    if (mobileToggle && navList) {
+        // Toggle menu on button click
+        mobileToggle.addEventListener('click', () => {
+            navList.classList.toggle('open');
+            mobileToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#navList a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    navList.classList.remove('open');
+                    if (mobileToggle) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        mobileToggle.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 900 && navList.classList.contains('open')) {
+                const header = document.querySelector('header');
+                if (header && !header.contains(e.target)) {
+                    navList.classList.remove('open');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    mobileToggle.classList.remove('active');
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && navList.classList.contains('open')) {
+                navList.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileToggle.classList.remove('active');
+            }
+        });
+
+        // Escape key support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navList.classList.contains('open')) {
+                navList.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileToggle.classList.remove('active');
+                mobileToggle.focus();
+            }
+        });
+    }
+
+    // Toast notification
+    const toast = document.getElementById('toast-success');
+    function showSuccessToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3500);
+    }
+
+    // Form submission handler
+    function handleFormSubmit(form, successMessage) {
+        if (!form) return;
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((v, k) => data[k] = v);
+            console.log('Form submitted:', data);
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                showSuccessToast(successMessage);
+            }, 500);
+        });
+    }
+
+    const leadForm = document.getElementById('leadForm');
+    const contactForm = document.getElementById('contactForm');
+    handleFormSubmit(leadForm, 'Consultation request sent! We will contact you soon.');
+    handleFormSubmit(contactForm, 'Detailed inquiry submitted! We will reply within 48 hours.');
+
+    // Project filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const type = btn.dataset.filter;
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(project => {
+                if (type === "all") {
+                    project.style.display = "block";
+                } else if (project.dataset.type === type) {
+                    project.style.display = "block";
+                } else {
+                    project.style.display = "none";
+                }
+            });
+        });
+    });
+
+    // Smooth scroll for anchor links - keeps everything on the same page
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.length > 1 && href !== '#') {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 900 && navList) {
+                        navList.classList.remove('open');
+                        if (mobileToggle) {
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                            mobileToggle.classList.remove('active');
+                        }
+                    }
+                    
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                    
+                    if (history.pushState) {
+                        history.pushState(null, null, href);
+                    }
+                }
+            }
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .scale-in').forEach(el => {
+        if (!el.closest('.hero')) {
+            observer.observe(el);
+        }
+    });
+    document.querySelectorAll('.footer-main, .footer-bottom').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Sticky header on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (header) {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    });
+
+    // Initial hero animations on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        const heroLeft = document.querySelector('.hero-content-left');
+        const heroRight = document.querySelector('.hero-content-right');
+        const heroStaggerItems = document.querySelectorAll('.hero-stagger-item');
+        const statItems = document.querySelectorAll('.stat-item');
+        
+        if (heroLeft) heroLeft.classList.add('visible');
+        if (heroRight) heroRight.classList.add('visible');
+        
+        heroStaggerItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('visible');
+            }, index * 100);
+        });
+        
+        setTimeout(() => {
+            statItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 150);
+            });
+        }, heroStaggerItems.length * 100 + 200);
+    });
+
+    // Load header
+    fetch('header.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Header not found');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            
+            // Re-initialize mobile toggle after header loads
+            const newMobileToggle = document.getElementById('mobileToggle');
+            const newNavList = document.getElementById('navList');
+            
+            if (newMobileToggle && newNavList) {
+                newMobileToggle.addEventListener('click', () => {
+                    newNavList.classList.toggle('open');
+                    newMobileToggle.setAttribute('aria-expanded', newNavList.classList.contains('open'));
+                    newMobileToggle.classList.toggle('active');
+                });
+                
+                document.querySelectorAll('#navList a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth <= 900) {
+                            newNavList.classList.remove('open');
+                            if (newMobileToggle) {
+                                newMobileToggle.setAttribute('aria-expanded', 'false');
+                                newMobileToggle.classList.remove('active');
+                            }
+                        }
+                    });
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 900 && newNavList.classList.contains('open')) {
+                        const header = document.querySelector('header');
+                        if (header && !header.contains(e.target)) {
+                            newNavList.classList.remove('open');
+                            newMobileToggle.setAttribute('aria-expanded', 'false');
+                            newMobileToggle.classList.remove('active');
+                        }
+                    }
+                });
+                
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 900 && newNavList.classList.contains('open')) {
+                        newNavList.classList.remove('open');
+                        newMobileToggle.setAttribute('aria-expanded', 'false');
+                        newMobileToggle.classList.remove('active');
+                    }
+                });
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && newNavList.classList.contains('open')) {
+                        newNavList.classList.remove('open');
+                        newMobileToggle.setAttribute('aria-expanded', 'false');
+                        newMobileToggle.classList.remove('active');
+                        newMobileToggle.focus();
+                    }
+                });
+            }
+            
+            // Re-apply smooth scroll for anchor links after header loads
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1 && href !== '#') {
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            e.preventDefault();
+                            
+                            if (window.innerWidth <= 900 && newNavList) {
+                                newNavList.classList.remove('open');
+                                if (newMobileToggle) {
+                                    newMobileToggle.setAttribute('aria-expanded', 'false');
+                                    newMobileToggle.classList.remove('active');
+                                }
+                            }
+                            
+                            targetElement.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                            
+                            if (history.pushState) {
+                                history.pushState(null, null, href);
+                            }
+                        }
+                    }
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Error loading header:', error);
+        });
+
+    // Load footer
+    fetch('footer.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Footer not found');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error loading footer:', error);
+        });
+</script>
+
 </body>
 </html>

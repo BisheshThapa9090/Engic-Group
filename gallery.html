@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery | Engic Group - Our Best Engineering & Architecture Projects</title>
+    <meta name="description" content="Explore our stunning gallery of engineering and architecture projects - residential homes, commercial buildings, and renovations across Nepal.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="toast-success">✅ Message Sent! We will contact you shortly.</div>
+
+<!-- Header will be loaded here -->
+<div id="header-placeholder"></div>
+
+<main>
+    <!-- Hero Section -->
+    <section class="gallery-hero">
+        <div class="container">
+            <h1>Our Visual Journey</h1>
+            <p>Explore the beauty of our craftsmanship through captivating visuals</p>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-grid-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gallery-cta">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let us bring your vision to life with the same excellence and attention to detail</p>
+            <a href="index.html#contact" class="cta-button">Get in Touch →</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer will be loaded here -->
+<div id="footer-placeholder"></div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-prev" onclick="changeImage(-1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </div>
+        <div class="lightbox-next" onclick="changeImage(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="lightbox-image-container">
+            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        </div>
+        <div class="lightbox-info">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDescription"></p>
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+</div>
+
+<style>
+    /* Gallery Page Styles */
+    .gallery-hero {
+        background: linear-gradient(135deg, var(--accent-light) 0%, #ffffff 100%);
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+
+    .gallery-hero h1 {
+        font-size: 56px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+    }
+
+    .gallery-hero p {
+        font-size: 20px;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.4;
+    }
+
+    .gallery-grid-section {
+        padding: 40px 0 80px;
+        background: #ffffff;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .gallery-card {
+        background: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 40px rgba(31, 78, 150, 0.15);
+    }
+
+    .gallery-image {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+    }
+
+    .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-card:hover .gallery-image img {
+        transform: scale(1.05);
+    }
+
+    /* Lighter overlay - pill button at bottom */
+    .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(31, 78, 150, 0.9), rgba(31, 78, 150, 0.6), transparent);
+        padding: 30px 20px 16px;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .overlay-content {
+        text-align: center;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        padding: 8px 18px;
+        border-radius: 40px;
+    }
+
+    .overlay-content svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .overlay-content span {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    .gallery-info {
+        padding: 20px;
+    }
+
+    .gallery-info h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+    }
+
+    .gallery-info p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .gallery-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: var(--accent-light);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--primary);
+        letter-spacing: 0.3px;
+    }
+
+    .gallery-cta {
+        background: var(--primary-dark);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .gallery-cta h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .gallery-cta p {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-bottom: 32px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-button {
+        background: white;
+        color: var(--primary);
+        padding: 14px 32px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Lightbox Modal - Style from first code */
+    .lightbox-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.96);
+        z-index: 10000;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .lightbox-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .lightbox-image-container {
+        max-width: 85%;
+        max-height: 75%;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .lightbox-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        max-height: 70vh;
+    }
+
+    .lightbox-info {
+        margin-top: 30px;
+        text-align: center;
+        color: white;
+        max-width: 600px;
+        padding: 0 20px;
+    }
+
+    .lightbox-info h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .lightbox-info p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+        z-index: 10001;
+        font-weight: 300;
+    }
+
+    .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+
+    .lightbox-prev, .lightbox-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 10001;
+        backdrop-filter: blur(10px);
+    }
+
+    .lightbox-prev:hover, .lightbox-next:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    .lightbox-prev svg, .lightbox-next svg {
+        width: 24px;
+        height: 24px;
+        stroke: white;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .lightbox-counter {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 13px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-family: monospace;
+    }
+
+    @media (max-width: 900px) {
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        .gallery-hero h1 {
+            font-size: 40px;
+        }
+        .lightbox-prev, .lightbox-next {
+            width: 40px;
+            height: 40px;
+        }
+        .lightbox-info h3 {
+            font-size: 20px;
+        }
+        .lightbox-info p {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+        .gallery-hero h1 {
+            font-size: 32px;
+        }
+        .gallery-hero p {
+            font-size: 16px;
+        }
+        .lightbox-image {
+            max-width: 95%;
+            max-height: 70%;
+        }
+        .lightbox-prev, .lightbox-next {
+            width: 36px;
+            height: 36px;
+        }
+        .lightbox-info h3 {
+            font-size: 18px;
+        }
+        .lightbox-info p {
+            font-size: 12px;
+        }
+        .overlay-content {
+            padding: 6px 14px;
+        }
+        .overlay-content span {
+            font-size: 11px;
+        }
+    }
+</style>
+
+<script src="script.js"></script>
+
+<script>
+    // Gallery Data - 26 Images with Detailed Descriptions
+    const galleryItems = [
+        // Chitwan Villa (4 images)
+        { id: 1, image: 'Engic-Group-Project-Image/Chitwan-Villa/Chitwan Villa.png', title: 'Chitwan Villa', description: 'A luxury 3BHK home featuring smart integration and a durable, flexible structure.', category: 'Residential Exterior' },
+        { id: 2, image: 'Engic-Group-Project-Image/Chitwan-Villa/Living Room Chitwan.png', title: 'Elegant Living Space', description: 'Premium Italian marble flooring, custom-designed furniture, and abundant natural light.', category: 'Residential Interior' },
+        { id: 3, image: 'Engic-Group-Project-Image/Chitwan-Villa/Bed Room Chitwan.png', title: 'Master Bedroom Suite', description: 'Custom-built wardrobes, ambient lighting, and premium finishes for ultimate comfort.', category: 'Residential Interior' },
+        { id: 4, image: 'Engic-Group-Project-Image/Chitwan-Villa/Bed Room and Living Room.png', title: 'Open Concept Living', description: 'The thoughtfully designed open floor plan connects living, dining, and kitchen areas, creating a spacious environment perfect for modern family life.', category: 'Residential Interior' },
+        
+        // Kathmandu Home (4 images)
+        { id: 5, image: 'Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home.jpg', title: 'Kathmandu Residence', description: 'An architectural statement in Baluwatar, this 4BHK home combines contemporary design with functional living spaces, creating a harmonious urban sanctuary.', category: 'Residential Exterior' },
+        { id: 6, image: 'Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home-Living-Room.png', title: 'Grand Living Area', description: 'Expansive living space with soaring ceilings, designer lighting, and carefully curated furnishings that reflect sophistication and comfort.', category: 'Residential Interior' },
+        { id: 7, image: 'Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home-Bed-Room.png', title: 'Luxury Bedroom', description: 'A serene master bedroom featuring premium hardwood flooring, smart home controls, and large windows.', category: 'Residential Interior' },
+        { id: 8, image: 'Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home-Bed-Room-and-Living-Room.png', title: 'Connected Living', description: 'Seamless transition between private and public spaces, designed for both relaxation and entertaining.', category: 'Residential Interior' },
+        
+        // Lalitpur House (5 images)
+        { id: 9, image: 'Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House.jpg', title: 'Lalitpur Modern Home', description: 'A stunning 3BHK residence in Sankhamul that exemplifies modern Nepali architecture with bold geometric forms.', category: 'Residential Exterior' },
+        { id: 10, image: 'Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Living-Room.png', title: 'Contemporary Living', description: 'The living room features custom artwork, premium furniture, and an open layout that maximizes space and natural light.', category: 'Residential Interior' },
+        { id: 11, image: 'Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Bed-Room.png', title: 'Peaceful Bedroom', description: 'Designed for rest and rejuvenation, this bedroom combines soft textiles, warm lighting, and smart storage solutions.', category: 'Residential Interior' },
+        { id: 12, image: 'Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Bath-Room-Design.png', title: 'Spa-Inspired Bathroom', description: 'A luxurious bathroom featuring premium fixtures, elegant tiles, and a rainfall shower for a spa-like experience.', category: 'Residential Interior' },
+        { id: 13, image: 'Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House-Design.png', title: 'Interior Harmony', description: 'Carefully curated design elements create visual harmony throughout the home, from furniture selection to decorative accents.', category: 'Residential Interior' },
+        
+        // Tanahun House (3 images)
+        { id: 14, image: 'Engic-Group-Project-Image/Tanahun-House/Tanahun-House.png', title: 'Eco-Friendly Tanahun House', description: 'A sustainable masterpiece featuring passive solar design, natural materials, and seamless integration with the landscape.', category: 'Residential Exterior' },
+        { id: 15, image: 'Engic-Group-Project-Image/Tanahun-House/Living-Room.png', title: 'Natural Living Space', description: 'The living area showcases natural stone elements, wooden accents, and large windows that connect interior spaces with nature.', category: 'Residential Interior' },
+        { id: 16, image: 'Engic-Group-Project-Image/Tanahun-House/Tanahun-House-Design.png', title: 'Architectural Detail', description: 'Thoughtful architectural details throughout the home demonstrate our commitment to craftsmanship and design excellence.', category: 'Residential Exterior' },
+        
+        // Pokhara Commercial (5 images)
+        { id: 17, image: 'Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png', title: 'Pokhara Commercial Hub', description: 'A landmark commercial complex that redefines workplace environments in Pokhara with modern architecture.', category: 'Commercial Exterior' },
+        { id: 18, image: 'Engic-Group-Project-Image/Pokhara-Commercial-Building/Office-Space.png', title: 'Modern Office Space', description: 'Designed for productivity and collaboration with optimal lighting, ergonomic layouts, and contemporary finishes.', category: 'Commercial Interior' },
+        { id: 19, image: 'Engic-Group-Project-Image/Pokhara-Commercial-Building/Conference-Room.png', title: 'Executive Conference Room', description: 'A state-of-the-art meeting space equipped with the latest technology and designed to inspire creativity.', category: 'Commercial Interior' },
+        { id: 20, image: 'Engic-Group-Project-Image/Pokhara-Commercial-Building/Lobby-Area.png', title: 'Grand Lobby', description: 'The welcoming lobby makes a powerful first impression with its double-height ceiling, premium materials, and modern aesthetic.', category: 'Commercial Interior' },
+        { id: 21, image: 'Engic-Group-Project-Image/Pokhara-Commercial-Building/Roof-Garden.png', title: 'Rooftop Garden', description: 'A serene green space offering panoramic views of Pokhara, perfect for breaks and informal meetings.', category: 'Commercial Exterior' },
+        
+        // Apartment Upgrade (5 images)
+        { id: 22, image: 'Engic-Group-Project-Image/Apartment-Upgrade/Living-Room.jpg', title: 'Modern Apartment Living', description: 'Complete interior transformation creating a bright, airy living space with premium finishes and smart storage.', category: 'Residential Interior' },
+        { id: 23, image: 'Engic-Group-Project-Image/Apartment-Upgrade/Bedroom.jpg', title: 'Cozy Bedroom Design', description: 'A comfortable retreat featuring custom joinery, soft textures, and a calming color palette.', category: 'Residential Interior' },
+        { id: 24, image: 'Engic-Group-Project-Image/Apartment-Upgrade/Kitchen.jpg', title: 'Modular Kitchen', description: 'A fully equipped modular kitchen with premium appliances, sleek cabinetry, and efficient workflow design.', category: 'Residential Interior' },
+        { id: 25, image: 'Engic-Group-Project-Image/Apartment-Upgrade/Bathroom.jpg', title: 'Luxury Bathroom', description: 'Elegant bathroom design with modern fixtures, premium tiles, and thoughtful lighting for a spa-like experience.', category: 'Residential Interior' },
+        { id: 26, image: 'Engic-Group-Project-Image/Apartment-Upgrade/Before-After.jpg', title: 'Before & After', description: 'Dramatic transformation showcasing our ability to reimagine spaces and maximize potential through thoughtful design.', category: 'Residential Interior' }
+    ];
+
+    let currentLightboxIndex = 0;
+
+    // Load header and footer
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navList = document.getElementById('navList');
+            if (mobileToggle && navList) {
+                mobileToggle.addEventListener('click', () => {
+                    navList.classList.toggle('open');
+                });
+            }
+            document.querySelectorAll('#navList a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        navList.classList.remove('open');
+                    }
+                });
+            });
+        })
+        .catch(error => console.error('Error loading header:', error));
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+
+    // Render Gallery
+    function renderGallery() {
+        const grid = document.getElementById('galleryGrid');
+        if (!grid) return;
+
+        grid.innerHTML = galleryItems.map(item => `
+            <div class="gallery-card" onclick="openLightbox(${item.id - 1})">
+                <div class="gallery-image">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://placehold.co/800x600/1F4E96/ffffff?text=Image+Not+Found'">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            <span>Click to view</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-info">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <div class="gallery-tags">
+                        ${item.category.split(' ').map(cat => `<span class="tag">${cat}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Lightbox Functions - Description below image (like first code)
+    function openLightbox(index) {
+        currentLightboxIndex = index;
+        const item = galleryItems[currentLightboxIndex];
+        
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDescription = document.getElementById('lightboxDescription');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        
+        lightboxImage.src = item.image;
+        lightboxTitle.textContent = item.title;
+        lightboxDescription.textContent = item.description;
+        lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${galleryItems.length}`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function changeImage(direction) {
+        currentLightboxIndex += direction;
+        
+        if (currentLightboxIndex < 0) {
+            currentLightboxIndex = galleryItems.length - 1;
+        } else if (currentLightboxIndex >= galleryItems.length) {
+            currentLightboxIndex = 0;
+        }
+        
+        const item = galleryItems[currentLightboxIndex];
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDescription = document.getElementById('lightboxDescription');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        
+        lightboxImage.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImage.src = item.image;
+            lightboxTitle.textContent = item.title;
+            lightboxDescription.textContent = item.description;
+            lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${galleryItems.length}`;
+            lightboxImage.style.opacity = '1';
+        }, 200);
+        lightboxImage.style.transition = 'opacity 0.2s ease';
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            } else if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        }
+    });
+
+    // Initial render
+    renderGallery();
+</script>
+
+</body>
+</html>

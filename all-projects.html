@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All Projects | Engic Group - Portfolio of Engineering & Architecture Excellence</title>
+    <meta name="description" content="Explore all projects by Engic Group - residential homes, commercial buildings, renovations across Nepal.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* All Projects Page Styles */
+        .all-projects-hero {
+            padding: 40px 0 20px;
+            background: #ffffff;
+        }
+        
+        /* Back button - same style as project pages */
+        .back-to-projects {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-projects:hover {
+            gap: 12px;
+        }
+
+        /* Filter Buttons */
+        .all-projects-filters {
+            padding: 20px 0 40px;
+            background: #ffffff;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            background: var(--accent-light);
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+        }
+
+        /* Projects Grid */
+        .all-projects-grid {
+            padding: 0 0 60px;
+            background: #ffffff;
+        }
+
+        .projects-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-thumb {
+            height: 240px;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumb::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-thumb::after {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content h4 {
+            font-size: 20px;
+            margin: 0 0 8px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* Professional Projects Footer Section */
+        .projects-footer-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 60px 0 80px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .projects-footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .projects-footer-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            padding: 20px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .projects-footer-message h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .projects-footer-message p {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-quote {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(31, 78, 150, 0.05);
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 550px;
+        }
+
+        .footer-quote svg {
+            flex-shrink: 0;
+            stroke: var(--primary);
+        }
+
+        .footer-quote p {
+            margin: 0;
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .projects-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .projects-cta-btn:hover {
+            background: var(--primary-dark);
+            gap: 15px;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(31, 78, 150, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .projects-grid-full {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            .projects-footer-stats {
+                gap: 20px;
+            }
+            .stat-number {
+                font-size: 32px;
+            }
+            .projects-footer-message h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid-full {
+                grid-template-columns: 1fr;
+            }
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            .projects-footer-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .stat-number {
+                font-size: 28px;
+            }
+            .footer-quote {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .projects-footer-message h3 {
+                font-size: 20px;
+            }
+            .back-to-projects {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="toast-success">✅ Message Sent! We will contact you shortly.</div>
+
+<!-- Header will be loaded here -->
+<div id="header-placeholder"></div>
+
+<main>
+    <!-- Back button - same style as project pages -->
+    <div class="all-projects-hero">
+        <div class="container">
+            <a href="index.html#projects" class="back-to-projects">← Back to all projects</a>
+        </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <section class="all-projects-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="renovation">Renovation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid - 12 Projects -->
+    <section class="all-projects-grid">
+        <div class="container">
+            <div class="projects-grid-full" id="allProjectsGrid">
+                <!-- Project 1 - Chitwan Villa -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Chitwan-Villa/Chitwan Villa.png');"></div>
+                    <div class="project-content">
+                        <h4>Chitwan Villa — Chitwan</h4>
+                        <p>A luxury 3BHK home featuring smart integration and a durable, flexible structure.</p>
+                        <a href="project-chitwan-villa.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Kathmandu Residential Home -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home.jpg');"></div>
+                    <div class="project-content">
+                        <h4>Kathmandu Residential Home - Baluwatar</h4>
+                        <p>A stunning 4BHK residential home featuring modern design, smart integration, and premium finishes.</p>
+                        <a href="project-kathmandu-residential.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Lalitpur House -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Lalitpur-House/Lalitpur-House.jpg');"></div>
+                    <div class="project-content">
+                        <h4>Lalitpur House - Sankhamul</h4>
+                        <p>A beautiful 3BHK modern home with elegant interior design and premium finishes.</p>
+                        <a href="project-lalitpur-house.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Tanahun House -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Tanahun-House/Tanahun-House.png');"></div>
+                    <div class="project-content">
+                        <h4>Tanahun House — Tanahun</h4>
+                        <p>An eco-friendly modern home featuring sustainable design and passive solar heating.</p>
+                        <a href="project-tanahun-house.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Pokhara Commercial Building -->
+                <div class="project-card" data-type="commercial">
+                    <div class="project-thumb" style="background-image: url('Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png');"></div>
+                    <div class="project-content">
+                        <h4>Commercial Building - Pokhara</h4>
+                        <p>A modern commercial complex featuring premium office spaces and world-class amenities.</p>
+                        <a href="project-pokhara-commercial.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Apartment Interior Upgrade -->
+                <div class="project-card" data-type="renovation">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Apartment+Interior+Upgrade');"></div>
+                    <div class="project-content">
+                        <h4>Apartment Interior Upgrade - Lazimpat</h4>
+                        <p>Full interior redesign focused on maximizing space and premium finishes.</p>
+                        <a href="project-apartment-upgrade.html" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Bhaktapur Heritage Home -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Bhaktapur+Heritage+Home');"></div>
+                    <div class="project-content">
+                        <h4>Bhaktapur Heritage Home - Bhaktapur</h4>
+                        <p>A beautifully restored traditional Newari home blending heritage architecture with modern amenities.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 8 - Banepa Hillside Villa -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Banepa+Hillside+Villa');"></div>
+                    <div class="project-content">
+                        <h4>Banepa Hillside Villa - Banepa</h4>
+                        <p>A luxury hillside villa with panoramic mountain views and modern architectural design.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 9 - Hetauda Industrial Park -->
+                <div class="project-card" data-type="commercial">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/2D6A4F/ffffff?text=Hetauda+Industrial+Park');"></div>
+                    <div class="project-content">
+                        <h4>Hetauda Industrial Park - Hetauda</h4>
+                        <p>A state-of-the-art industrial complex designed for manufacturing and warehousing.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 10 - Butwal Commercial Hub -->
+                <div class="project-card" data-type="commercial">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/6B21A8/ffffff?text=Butwal+Commercial+Hub');"></div>
+                    <div class="project-content">
+                        <h4>Butwal Commercial Hub - Butwal</h4>
+                        <p>A mixed-use commercial development with retail spaces, offices, and entertainment zones.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 11 - Dhulikhel Resort Renovation -->
+                <div class="project-card" data-type="renovation">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Dhulikhel+Resort');"></div>
+                    <div class="project-content">
+                        <h4>Dhulikhel Resort Renovation - Dhulikhel</h4>
+                        <p>Complete renovation of a mountain resort featuring modern amenities and traditional aesthetics.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 12 - Biratnagar Apartment Complex -->
+                <div class="project-card" data-type="residential">
+                    <div class="project-thumb" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Biratnagar+Apartment');"></div>
+                    <div class="project-content">
+                        <h4>Biratnagar Apartment Complex - Biratnagar</h4>
+                        <p>A modern apartment complex offering luxury living with smart home features and community spaces.</p>
+                        <a href="#" class="project-link">View Project Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Footer Section for Projects -->
+    <section class="projects-footer-section">
+        <div class="container">
+            <div class="projects-footer-content">
+                <div class="projects-footer-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Completed Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50k+</div>
+                        <div class="stat-label">Sq. Ft. Built</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Years Excellence</div>
+                    </div>
+                </div>
+                <div class="projects-footer-message">
+                    <h3>Building Nepal's Future, One Project at a Time</h3>
+                    <p>Every project in our portfolio represents our unwavering commitment to quality, innovation, and sustainability. From luxury residences to commercial landmarks, we bring visions to life with precision and care.</p>
+                    <div class="footer-quote">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M10 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1zM3 14.5L6 11M18 11h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zM21 14.5L18 11"/>
+                            <path d="M12 4v16M8 20h8"/>
+                        </svg>
+                        <p>"Quality is not an act, it is a habit — and we've made it our tradition."</p>
+                    </div>
+                    <a href="index.html#contact" class="projects-cta-btn">Start Your Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer will be loaded here -->
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+<script>
+    // Load header and footer
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navList = document.getElementById('navList');
+            if (mobileToggle && navList) {
+                mobileToggle.addEventListener('click', () => {
+                    navList.classList.toggle('open');
+                });
+            }
+            document.querySelectorAll('#navList a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        navList.classList.remove('open');
+                    }
+                });
+            });
+        })
+        .catch(error => console.error('Error loading header:', error));
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-type') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
