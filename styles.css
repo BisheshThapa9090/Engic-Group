@@ -775,6 +775,104 @@ input:focus, textarea:focus {
     transform: translateY(-2px);
 }
 
+/* ============================================ */
+/* ABOUT PAGE - APPLE INSPIRED SOCIAL ICONS */
+/* ============================================ */
+
+/* Founder Social Icons - Apple Style */
+.founder-social-about {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.founder-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.founder-social-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.founder-social-link svg {
+    width: 18px;
+    height: 18px;
+    transition: color 0.3s ease;
+}
+
+.founder-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(10, 102, 194, 0.3);
+}
+
+.founder-instagram:hover {
+    background: radial-gradient(circle at 30% 110%, #ffdb7c, #fbad50 30%, #cd486b 60%, #bc2a8d 80%, #8a3ab9);
+    border-color: #cd486b;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(205, 72, 107, 0.3);
+}
+
+/* Team Member Social Icons - Apple Style */
+.about-team-social {
+    display: flex;
+    gap: 10px;
+}
+
+.about-team-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.about-team-social a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.about-team-social a svg {
+    width: 16px;
+    height: 16px;
+    transition: color 0.3s ease;
+}
+
+.social-icon-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(10, 102, 194, 0.25);
+}
+
+.social-icon-instagram:hover {
+    background: radial-gradient(circle at 30% 110%, #ffdb7c, #fbad50 30%, #cd486b 60%, #bc2a8d 80%, #8a3ab9);
+    border-color: #cd486b;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(205, 72, 107, 0.25);
+}
+
 /* Contact Section */
 .contact {
     padding: 50px 40px;
@@ -1110,6 +1208,11 @@ footer {
     .team-grid-modern {
         grid-template-columns: repeat(2, 1fr);
     }
+    .founder-social-about {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 10px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1126,6 +1229,11 @@ footer {
     }
     .footer-main {
         gap: 30px;
+    }
+    .founder-social-about {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 10px;
     }
 }
 
@@ -1184,5 +1292,18 @@ footer {
     }
     .footer-social {
         justify-content: center;
+    }
+    .founder-social-about {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 10px;
+    }
+    .founder-social-link {
+        width: 34px;
+        height: 34px;
+    }
+    .about-team-social a {
+        width: 34px;
+        height: 34px;
     }
 }

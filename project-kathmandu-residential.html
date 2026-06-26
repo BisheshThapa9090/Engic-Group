@@ -84,8 +84,8 @@
         .lightbox-next { right: 20px; }
         .lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 14px; background: rgba(0, 0, 0, 0.6); padding: 8px 16px; border-radius: 20px; font-family: monospace; }
         
-        .back-to-projects { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; margin-bottom: 20px; }
-        .back-to-projects:hover { gap: 12px; }
+        .back-to-projects { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; margin-bottom: 20px; transition: all 0.3s ease; }
+        .back-to-projects:hover { gap: 12px; color: var(--primary-dark); }
         
         @media(max-width: 1024px) {
             .project-hero-grid { grid-template-columns: 1fr; }
@@ -130,7 +130,7 @@
     <!-- Project Hero Section -->
     <section class="project-hero">
         <div class="container">
-            <a href="index.html#projects" class="back-to-projects">← Back to all projects</a>
+            <a href="all-projects.html" class="back-to-projects">← Back to Projects</a>
             <div class="project-hero-grid">
                 <div class="project-gallery">
                     <div class="main-image" id="mainImage" style="background-image: url('Engic-Group-Project-Image/Kathmandu-Home/Kathmandu-Home.jpg');"></div>

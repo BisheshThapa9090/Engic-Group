@@ -84,8 +84,8 @@
         .lightbox-next { right: 20px; }
         .lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 14px; background: rgba(0, 0, 0, 0.6); padding: 8px 16px; border-radius: 20px; font-family: monospace; }
         
-        .back-to-projects { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; margin-bottom: 20px; }
-        .back-to-projects:hover { gap: 12px; }
+        .back-to-projects { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; margin-bottom: 20px; transition: all 0.3s ease; }
+        .back-to-projects:hover { gap: 12px; color: var(--primary-dark); }
         
         @media(max-width: 1024px) {
             .project-hero-grid { grid-template-columns: 1fr; }
@@ -132,7 +132,7 @@
     <!-- Project Hero Section -->
     <section class="project-hero">
         <div class="container">
-            <a href="index.html#projects" class="back-to-projects">← Back to all projects</a>
+            <a href="all-projects.html" class="back-to-projects">← Back to Projects</a>
             <div class="project-hero-grid">
                 <div class="project-gallery">
                     <div class="main-image" id="mainImage" style="background-image: url('../Engic-Group-Project-Image/Pokhara-Commercial-Building/Pokhara-Commercial-Building.png');"></div>
@@ -259,23 +259,23 @@
             <h2 style="text-align: center; margin-bottom: 20px;">Related Projects</h2>
             <p style="text-align: center; color: var(--muted); max-width: 600px; margin: 0 auto 40px;">Explore more of our commercial and residential projects in Nepal</p>
             <div class="related-grid">
-                <a href="project-chitwan-villa.html" class="related-card">
-                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Chitwan+Villa');"></div>
-                    <div class="related-content"><h4>Chitwan Villa</h4><p>Chitwan, Nepal</p></div>
+                <a href="project-hetauda-industrial-park.html" class="related-card">
+                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/2D6A4F/ffffff?text=Hetauda+Industrial+Park');"></div>
+                    <div class="related-content"><h4>Hetauda Industrial Park</h4><p>Hetauda, Nepal</p></div>
                 </a>
-                <a href="project-kathmandu-residential.html" class="related-card">
-                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/163C75/ffffff?text=Kathmandu+Home');"></div>
-                    <div class="related-content"><h4>Kathmandu Residential Home</h4><p>Baluwatar, Kathmandu</p></div>
+                <a href="project-butwal-commercial-hub.html" class="related-card">
+                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/6B21A8/ffffff?text=Butwal+Commercial+Hub');"></div>
+                    <div class="related-content"><h4>Butwal Commercial Hub</h4><p>Butwal, Nepal</p></div>
                 </a>
-                <a href="project-lalitpur-house.html" class="related-card">
-                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/3B82F6/ffffff?text=Lalitpur+House');"></div>
-                    <div class="related-content"><h4>Lalitpur House</h4><p>Sankhamul, Lalitpur</p></div>
+                <a href="project-biratnagar-apartment.html" class="related-card">
+                    <div class="related-img" style="background-image: url('https://placehold.co/800x450/1F4E96/ffffff?text=Biratnagar+Apartment');"></div>
+                    <div class="related-content"><h4>Biratnagar Apartment Complex</h4><p>Biratnagar, Nepal</p></div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section - UPDATED to match engineering focus -->
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Inspired by this Commercial Project in Pokhara?</h2>
