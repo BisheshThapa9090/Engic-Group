@@ -88,6 +88,7 @@
         padding: 60px 0 30px;
         margin-top: 0;
         width: 100%;
+        border-top: none;   /* ← FIX: kills extra line from styles.css */
     }
 
     .footer-content {
@@ -96,7 +97,6 @@
         padding: 0 20px;
     }
 
-    /* FIX 1: Gave more room to the links grid (was 1.5fr 2fr) */
     .footer-main {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -151,7 +151,6 @@
         max-width: 320px;
     }
 
-    /* FIX 2: Reduced gap so links have more room (was 40px) */
     .footer-links-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -190,7 +189,6 @@
         gap: 10px;
     }
 
-    /* FIX 3: Prevent link text from wrapping to 2 lines */
     .footer-links a {
         color: rgba(255, 255, 255, 0.75);
         text-decoration: none;
@@ -345,7 +343,6 @@
         }
     }
 
-    /* FIX 4: Restore wrapping on very small screens so text doesn't overflow */
     @media (max-width: 600px) {
         .footer-links-grid {
             grid-template-columns: 1fr;
