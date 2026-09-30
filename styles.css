@@ -247,6 +247,30 @@ nav a:hover::after {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 2.5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 @media (max-width: 900px) {
@@ -268,7 +292,7 @@ nav a:hover::after {
         display: flex;
     }
     .mobile-toggle {
-        display: block;
+        display: flex;
     }
     .nav a:hover::after {
         background: var(--accent-light);
@@ -1085,22 +1109,28 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .social-link:hover {
-    background: var(--primary);
+    background: #1F4E96;
+    color: #fff;
     transform: translateY(-3px);
+    border-color: #1F4E96;
+    box-shadow: 0 8px 25px rgba(31, 78, 150, 0.3);
 }
 
 .social-link svg {
     width: 18px;
     height: 18px;
-    fill: #ffffff;
+    fill: currentColor;
 }
 
 /* Toast Notification */
